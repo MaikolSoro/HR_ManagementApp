@@ -119,10 +119,145 @@ class _HomeScreenState extends State<HomeScreen> {
                       Colors.blueAccent,
                       "💻",
                     ),
+                    departmentCard(
+                      "UI/UX Design",
+                      45,
+                      "creatives",
+                      Colors.orangeAccent,
+                      "🎨",
+                    ),
+                    departmentCard(
+                      "QA",
+                      24,
+                      "helpers",
+                      Colors.redAccent,
+                      "💻",
+                    ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "You recently worked with ",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                children: [
+                  usersWokredWith(
+                    "Sam Smith",
+                    "images/user2.jpg",
+                    Colors.blueAccent,
+                    "Frontend Developer",
+                  ),
+                  usersWokredWith(
+                    "Jacob Gravilov",
+                    "images/user3.jpg",
+                    Colors.redAccent,
+                    "Mobile Developer",
+                  ),
+                  usersWokredWith(
+                    "Stephen Filescher",
+                    "images/user4.jpg",
+                    Colors.orangeAccent,
+                    "UI/UX Design",
+                  ),
+                ],
+              ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget usersWokredWith(String name, String image, Color color, String title) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20),
+      child: InkWell(
+        onTap: () {
+          String _job;
+          if (color == Colors.blueAccent) {
+            _job = "Developer";
+          } else if (color == Colors.redAccent) {
+            _job = "Engineer";
+          } else {
+            _job = "Designer";
+          }
+          /* Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WorkerDetailsScreen(),
+            ),
+            
+          );
+          */
+        },
+        child: Container(
+          width: double.infinity,
+          height: 90,
+          decoration: BoxDecoration(
+            color: color.withOpacity(0.07),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Center(
+            child: ListTile(
+              leading: Container(
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.blueAccent,
+                  image: DecorationImage(
+                    image: AssetImage(image),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              title: Text(
+                name,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              trailing: Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: Center(
+                    child: Icon(
+                      FontAwesome5Regular.edit,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
