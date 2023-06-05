@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
+import 'worker_details_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -197,14 +199,18 @@ class _HomeScreenState extends State<HomeScreen> {
           } else {
             _job = "Designer";
           }
-          /* Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WorkerDetailsScreen(),
+              builder: (context) => WorkerDetailsScreen(
+                name: name,
+                image: image,
+                color: color,
+                jobTitle: title,
+                job: _job,
+              ),
             ),
-            
           );
-          */
         },
         child: Container(
           width: double.infinity,
