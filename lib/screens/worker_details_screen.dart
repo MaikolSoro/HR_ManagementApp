@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class WorkerDetailsScreen extends StatelessWidget {
   final String name;
@@ -84,7 +85,7 @@ class WorkerDetailsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.blueAccent,
                             image: DecorationImage(
-                              image: AssetImage("image"),
+                              image: AssetImage(image),
                               fit: BoxFit.cover,
                             ),
                             boxShadow: [
@@ -128,10 +129,78 @@ class WorkerDetailsScreen extends StatelessWidget {
                 initialChildSize: 0.65,
                 builder: (context, scrollController) {
                   return Container(
-                    padding: EdgeInsets.only(),
+                    padding: EdgeInsets.only(
+                      top: 40,
+                      left: 20,
+                      right: 20,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: ListView(
+                      controller: scrollController,
+                      children: [
+                        Text(
+                          "Stats",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            iconContainer(
+                              Colors.redAccent,
+                              Ionicons.heart,
+                              "likes",
+                              43,
+                            ),
+                            iconContainer(
+                              Colors.deepPurpleAccent.withOpacity(0.5),
+                              AntDesign.like1,
+                              "thanks",
+                              24,
+                            ),
+                            iconContainer(
+                              Colors.blue,
+                              Ionicons.ribbon,
+                              "credits",
+                              24,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "Last Updates",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        lastUpdates(
+                          name,
+                          "General",
+                          "done great job when meeting newcomers in the office yersterday. Im proud of him ",
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        lastUpdates(
+                          name,
+                          "Attitude",
+                          "took the extra effort to help me with my project last  week. He's five start teamlead!",
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -139,6 +208,86 @@ class WorkerDetailsScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget lastUpdates(String name, String title, String desc) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.blueAccent.withOpacity(0.07),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              name + " " + desc,
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget iconContainer(Color color, IconData icon, String title, int number) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey.withOpacity(0.06),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: color,
+            size: 40,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                number.toString(),
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
