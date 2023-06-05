@@ -2,15 +2,17 @@
 
 A new Flutter project.
 
-## Getting Started
+#  Hr Management App ❤️
+🌞 Light Mode
+<table style="width:100%">
+  <tr>
+    <th>1.Home Screen </th> 
+    <th>2.Details </th>
+ 
+  </tr>
+  <tr>
+    <td><img src = "https://github.com/MaikolSoro/PlantApp/assets/46753453/dd6aec99-7b72-4acf-ac21-49929322d688" /></td> 
+    <td><img src = "https://github.com/MaikolSoro/PlantApp/assets/46753453/13055bde-cff9-45ce-acbd-1fa1fed4311d" /></td>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  </tr>
+</table>
